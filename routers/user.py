@@ -50,7 +50,7 @@ async def user_info(sessionid: str = Form(...),
     return cl.user_info(user_id, use_cache)
 
 
-@router.post("/info_by_username", response_model=User)
+@router.post("/info_by_username_v1", response_model=User)
 async def user_info_by_username_v1(sessionid: str = Form(...), 
                                 username: str = Form(...), 
                                 use_cache: Optional[bool] = Form(True), 
