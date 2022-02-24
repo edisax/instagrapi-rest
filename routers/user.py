@@ -51,14 +51,14 @@ async def user_info(sessionid: str = Form(...),
 
 
 @router.post("/info_by_username", response_model=User)
-async def user_info_by_username(sessionid: str = Form(...), 
+async def user_info_by_username_v1(sessionid: str = Form(...), 
                                 username: str = Form(...), 
                                 use_cache: Optional[bool] = Form(True), 
                                 clients: ClientStorage = Depends(get_clients)) -> User:
     """Get user object from username
     """
     cl = clients.get(sessionid)
-    return cl.user_info_by_username(username, use_cache)
+    return cl.user_info_by_username_v1(username, use_cache)
 
 
 @router.post("/follow", response_model=bool)
